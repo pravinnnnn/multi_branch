@@ -21,7 +21,18 @@ pipeline {
                 sh 'mvn clean deploy'
             }
         }
-        
+         stage('SonarQube-Scan') {
+            environment{
+                scannerHome = tool 'pr-sonar-scanner'
+            }
+ 
+            steps{
+                withSonarQubeEnv('pr-sonar-scanner') {
+                    sh "${scannerHome}/bin/sonar-scanner"
+                }
+            }
+        }
+ 
         stage('Hello') {
             steps {
                 echo 'Hello World'
