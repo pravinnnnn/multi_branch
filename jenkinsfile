@@ -23,7 +23,7 @@ pipeline {
         }
          stage('SonarQube-Scan') {
             environment{
-                scannerHome = tool 'pr-sonar-scanner'
+                scannerHome = tool 'pr-sonarqube-scanner'
             }
  
             steps{
