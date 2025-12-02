@@ -21,7 +21,7 @@ pipeline {
                 sh 'mvn clean deploy'
             }
         }
-         stage('SonarQube-Scan') {
+        stage('SonarQube-Scan') {
             environment{
                 scannerHome = tool 'pr-sonarqube-scanner'
             }
